@@ -1,0 +1,18 @@
+
+.anchor{
+    display: block;
+    height: 115px; /*same height as header*/
+    margin-top: -115px; /*same height as header*/
+    visibility: hidden;
+  }
+
+.tam-header{
+  height: 100vh;
+}
+
+@media(min-width: 800px){
+  .tam-img{
+      width: 600px !important;
+      
+  }
+}
