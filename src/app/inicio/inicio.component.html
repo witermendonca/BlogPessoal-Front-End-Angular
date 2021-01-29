@@ -21,7 +21,7 @@
 </div>
 
 
-<div class="container mb-5" id="postagens">
+<div class="container mb-5 mt-65" id="postagens">
   <span class="anchor" id="section1"></span>
 
   <nav>
@@ -29,155 +29,172 @@
       <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todas-postagens-tab" data-toggle="tab"
         href="#nav-todas-postagens" role="tab" aria-controls="nav-todas-postagens" aria-selected="true">Todas
         Postagens</a>
-      <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
-        href="#nav-minhas-postagens" role="tab" aria-controls="nav-minhas-postagens" aria-selected="false">Minhas
+      <a (click)='findByIdUsuario()' class="nav-item nav-link text-secondary font-weight-bold"
+        id="nav-minhas-postagens-tab" data-toggle="tab" href="#nav-minhas-postagens" role="tab"
+        aria-controls="nav-minhas-postagens" aria-selected="false">Minhas
         Postagens</a>
       <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-tema-tab" data-toggle="tab"
         href="#nav-postagens-por-tema" role="tab" aria-controls="nav-postagens-por-tema" aria-selected="false">Postagens
         por tema</a>
     </div>
   </nav>
+
+  <h2 *ngIf='listaPostagem.length == 0' class="text-center text-secondary mt-5">
+    Não existem postagens ainda...
+  </h2>
+
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel"
       aria-labelledby="nav-todas-postagens-tab">
 
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="titulo"
+              placeholder="Digite um titulo de postagem para pesquisar" [(ngModel)]='tituloPostagem'
+              (keyup)='findByTituloPostagem()'>
+          </div>
+        </div>
+      </div>
+
       <!--Todas Postagens-->
       <div class="row mt-5 mb-5">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="row">
-            <div class="col-md-12 ">
-              <hr>
-              <!--titulo-->
-              <h2 class="align">RaizAgro</h2>
-
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="row">
+              <div class="col-md-12 ">
+                <hr>
+                <!--titulo-->
+                <h2 class="align">RaizAgro</h2>
+  
+              </div>
             </div>
+  
+  
+            <small class="text-muted text-center"> Tema: frutas</small>
+  
+            <!--descrição-->
+            <p class=" mt-3">(Aqui vai a descrição do post)
+              Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+              perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+  
+            <!--usuario-->
+            <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+  
+            <!--data-->
+            <p class="text-center"><small class="text-muted">
+                27/01/2021 às 09:01
+              </small></p>
           </div>
-
-
-          <small class="text-muted text-center"> Tema: frutas</small>
-
-          <!--descrição-->
-          <p class=" mt-3">(Aqui vai a descrição do post)
-            Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-          <!--usuario-->
-          <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-          <!--data-->
-          <p class="text-center"><small class="text-muted">
-              27/01/2021 às 09:01
-            </small></p>
         </div>
       </div>
-    </div>
-
-    <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
-
-      <!--Minhas Postagens-->
-      <div class="row mt-5 mb-5">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="row">
-            <div class="col-md-12 ">
-              <hr>
-              <!--titulo-->
-              <h2 class="align">RaizAgro</h2>
-
+  
+      <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
+  
+        <!--Minhas Postagens-->
+        <div class="row mt-5 mb-5">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="row">
+              <div class="col-md-12 ">
+                <hr>
+                <!--titulo-->
+                <h2 class="align">RaizAgro</h2>
+  
+              </div>
             </div>
+  
+  
+            <small class="text-muted text-center"> Tema: frutas</small>
+  
+            <!--descrição-->
+            <p class=" mt-3">(Aqui vai a descrição do post)
+              Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+              perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+  
+            <!--usuario-->
+            <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+  
+            <!--data-->
+            <p class="text-center"><small class="text-muted">
+                27/01/2021 às 09:01
+              </small></p>
           </div>
-
-
-          <small class="text-muted text-center"> Tema: frutas</small>
-
-          <!--descrição-->
-          <p class=" mt-3">(Aqui vai a descrição do post)
-            Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-          <!--usuario-->
-          <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-          <!--data-->
-          <p class="text-center"><small class="text-muted">
-              27/01/2021 às 09:01
-            </small></p>
         </div>
       </div>
-    </div>
-
-
-
-
-    <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel" aria-labelledby="nav-postagens-por-tema-tab">
-
-      <!--Postagens por Tema-->
-      <div class="row mt-5 mb-5">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="row">
-            <div class="col-md-12 ">
-              <hr>
-              <!--titulo-->
-              <h2 class="align">RaizAgro</h2>
-
+  
+  
+  
+  
+      <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel" aria-labelledby="nav-postagens-por-tema-tab">
+  
+        <!--Postagens por Tema-->
+        <div class="row mt-5 mb-5">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="row">
+              <div class="col-md-12 ">
+                <hr>
+                <!--titulo-->
+                <h2 class="align">RaizAgro</h2>
+  
+              </div>
             </div>
+  
+  
+            <small class="text-muted text-center"> Tema: frutas</small>
+  
+            <!--descrição-->
+            <p class=" mt-3">(Aqui vai a descrição do post)
+              Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+              perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+  
+            <!--usuario-->
+            <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+  
+            <!--data-->
+            <p class="text-center"><small class="text-muted">
+                27/01/2021 às 09:01
+              </small></p>
           </div>
-
-
-          <small class="text-muted text-center"> Tema: frutas</small>
-
-          <!--descrição-->
-          <p class=" mt-3">(Aqui vai a descrição do post)
-            Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-          <!--usuario-->
-          <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-          <!--data-->
-          <p class="text-center"><small class="text-muted">
-              27/01/2021 às 09:01
-            </small></p>
         </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="nova-postagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-grup">
-          <label for="titulo">Título</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o Título">
-        </div>
-        <div class="form-grup mt-2">
-          <label for="texto">Texto</label>
-          <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
-        </div>
-        <div class="form-grup mt-2">
-          <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a></label>
-          <select class="form-control" name="tema" id="tema">
-            <option *ngFor='let item of listaTema' value="{{item.id}}">{{item.descricao}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success">Publicar</button>
+  
       </div>
     </div>
   </div>
-</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="nova-postagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-grup">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" id="titulo" placeholder="Digite o Título">
+          </div>
+          <div class="form-grup mt-2">
+            <label for="texto">Texto</label>
+            <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
+          </div>
+          <div class="form-grup mt-2">
+            <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um novo</a></label>
+            <select class="form-control" name="tema" id="tema">
+              <option *ngFor='let item of listaTema' value="{{item.id}}">{{item.descricao}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success">Publicar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
