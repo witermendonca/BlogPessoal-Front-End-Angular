@@ -101,7 +101,7 @@ export class InicioComponent implements OnInit {
     }
   }
 
-  /*findByNomeTema(){
+  findByNomeTema(){
    if (this.nomeTema == ''){
      this.getAllTemas()
    } else{
@@ -109,7 +109,7 @@ export class InicioComponent implements OnInit {
        this.listaTema = resp
      })
    }
-  } */
+  } 
   
 
 }
