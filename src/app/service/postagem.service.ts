@@ -25,7 +25,7 @@ getByIdPostagens(id: number): Observable<Postagem> {
 }
 
 getByTituloPostagens(titulo: string): Observable<Postagem[]> {
-   return this.http.get<Postagem[]>(`http://localhost:8080/postagens/${titulo}`, this.token)
+   return this.http.get<Postagem[]>(`http://localhost:8080/postagens/titulo/${titulo}`, this.token)
   }
 
 postPosagem(postagem: Postagem): Observable<Postagem>{

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Postagem } from 'src/app/model/postagem';
 import { Tema } from 'src/app/model/tema';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { PostagemService } from 'src/app/service/postagem.service';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
@@ -24,14 +25,14 @@ export class PostagemEditComponent implements OnInit {
     private route: ActivatedRoute,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    //private alertas: AlertasService
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
 
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
-    if(environment.token == ''){
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
 
@@ -40,32 +41,31 @@ export class PostagemEditComponent implements OnInit {
     this.findAllTemas()
   }
 
-  findByIdPostagem(id: number){
+  findByIdPostagem(id: number) {
     this.postagemService.getByIdPostagens(id).subscribe((resp: Postagem) => {
       this.postagem = resp
     })
   }
 
-  findByIdTema(){
+  findByIdTema() {
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
 
-  findAllTemas(){
-    this.temaService.getAllTema().subscribe((resp: Tema[]) =>{
+  findAllTemas() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTema = resp
     })
   }
 
-  atualizar(){
+  atualizar() {
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem atualizada com sucesso!')
-     // this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
       this.router.navigate(['/inicio'])
     })
   }

@@ -67,7 +67,7 @@
 
       <div class="card-columns">
         <div class="card text-center"
-        *ngFor='let item of listaPostagem'>
+        *ngFor='let item of listaPostagem | orderBy : key : reverse'>
           <div class="card-body">
             <h5 class="card-title m-0">{{item.titulo}}</h5>
             <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
@@ -89,7 +89,7 @@
 
 
       <div class="card-columns">
-        <div class="card text-center" *ngFor='let item of usuario.postagem'>
+        <div class="card text-center" *ngFor='let item of usuario.postagem | orderBy : key : reverse'>
           <div class="card-body">
             <h5 class="card-title m-0">{{item.titulo}}</h5>
             <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
@@ -117,10 +117,10 @@
       </div>
 
       <div class="card-columns" *ngFor='let tema of listaTema'>
-        <div class="card text-center" *ngFor='let item of tema.postagem'>
+        <div class="card text-center" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
           <div class="card-body">
             <h5 class="card-title m-0">{{item.titulo}}</h5>
-            <p class="card-text mt-3">{{item.texto}}</p>
+            <pre class="card-text mt-3">{{item.texto}}</pre>
             <p class="card-text"><small class="text-muted">
                 {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
               </small></p>
@@ -167,7 +167,7 @@
         </div>
 
         <div class="form-group">
-          <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:
+          <label for="texto">Escolha um tema <a *ngIf="authService.adm()" data-dismiss="modal" routerLink='/tema'> ou cadastre um novo</a>:
           </label>
           <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
             <option *ngFor='let item of listaTema' value="{{item.id}}">

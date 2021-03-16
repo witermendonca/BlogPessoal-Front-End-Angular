@@ -20,3 +20,8 @@
 .mt-65{
   margin-top: 65px;
 }
+
+pre{
+  font-size: 13pt;
+  font-family: italic;
+}
